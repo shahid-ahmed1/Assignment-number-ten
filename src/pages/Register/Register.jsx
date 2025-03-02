@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../authprovider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../../components/fairebases/Fairebase';
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const [error,setError]=useState({});
@@ -25,6 +26,10 @@ const Register = () => {
     creatNewUser(email,password)
     .then(result=>{
      setUser(result.user)
+      toast.success('Register Successfully'),
+         {
+           className: "custom-toast"
+         } 
      navigate(location?.state?location.state:'/')
     })
     .catch((err) => {
@@ -37,6 +42,10 @@ const Register = () => {
     loginWithGoogle(auth,provider)
     .then(result =>{
       setUser(result.user)
+       toast.success('Login Successfully'),
+          {
+            className: "custom-toast"
+          } 
       navigate(location?.state?location.state:'/')
     })
     .catch((err) => {

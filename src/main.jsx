@@ -15,6 +15,7 @@ import GameWatchlist from './pages/GameWatchlist/GameWatchlist.jsx';
 import Register from './pages/Register/Register.jsx';
 import Login from './pages/Login/Login.jsx';
 import AuthProvider from './authprovider/AuthProvider.jsx';
+import { ToastContainer } from 'react-toastify';
 
   const router = createBrowserRouter([
     {
@@ -55,6 +56,6 @@ createRoot(document.getElementById('root')).render(
     <AuthProvider>
     <RouterProvider router={router} />
     </AuthProvider>
-    
+    <ToastContainer></ToastContainer>
   </StrictMode>,
 )
