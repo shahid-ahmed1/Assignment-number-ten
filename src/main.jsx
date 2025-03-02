@@ -12,6 +12,9 @@ import HomePage from './pages/HomePage/HomePage.jsx';
 import AllReviews from './pages/AllReviews/AllReviews.jsx';
 import AddReview from './pages/AddReview/AddReview.jsx';
 import GameWatchlist from './pages/GameWatchlist/GameWatchlist.jsx';
+import Register from './pages/Register/Register.jsx';
+import Login from './pages/Login/Login.jsx';
+import AuthProvider from './authprovider/AuthProvider.jsx';
 
   const router = createBrowserRouter([
     {
@@ -36,11 +39,11 @@ import GameWatchlist from './pages/GameWatchlist/GameWatchlist.jsx';
         },
         {
           path: "/register",
-          element:<HomePage></HomePage>,
+          element:<Register></Register>,
         },
         {
           path: "/login",
-          element:<HomePage></HomePage>,
+          element:<Login></Login>,
         },
        
         
@@ -49,6 +52,9 @@ import GameWatchlist from './pages/GameWatchlist/GameWatchlist.jsx';
   ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <RouterProvider router={router} />
+    <AuthProvider>
+    <RouterProvider router={router} />
+    </AuthProvider>
+    
   </StrictMode>,
 )
