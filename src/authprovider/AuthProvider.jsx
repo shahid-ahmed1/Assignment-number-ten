@@ -4,6 +4,7 @@ import { auth } from '../components/fairebases/Fairebase';
 export const AuthContext= createContext()
 const AuthProvider = ({children}) => {
     const [user,setUser]= useState(null)
+    console.log(user)
     const [loading,setLoaing] = useState(true);
     const creatNewUser=(email,password)=>{
         setLoaing(true)
@@ -28,12 +29,6 @@ const AuthProvider = ({children}) => {
         })
     }
     
-    
-    const forgetPassword =(auth,email)=>{
-        setLoaing(true)
-    return sendPasswordResetEmail(auth,email)
-    
-    }
     const logOut=()=>{
         setLoaing(true)
         return signOut(auth)
@@ -47,7 +42,6 @@ const AuthProvider = ({children}) => {
        loginWithGoogle,
        manageProfile,
        loading,
-       forgetPassword
     
        }
     
