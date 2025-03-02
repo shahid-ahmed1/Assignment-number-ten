@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../authprovider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { auth } from '../../components/fairebases/Fairebase';
 
 const Register = () => {
   const [error,setError]=useState({});
-  const {creatNewUser,setUser,loginWithGoogle} = useContext(AuthContext)
+  const {creatNewUser,user,setUser,loginWithGoogle} = useContext(AuthContext)
+  const provider = new GoogleAuthProvider()
+  const navigate = useNavigate()
   const handleRegister =(e)=>{
     e.preventDefault();
     const name = e.target.name.value;
@@ -20,8 +24,6 @@ const Register = () => {
     }
     creatNewUser(email,password)
     .then(result=>{
-      console.log(result.user)
-      manageProfile(name,photo)
      setUser(result.user)
      navigate(location?.state?location.state:'/')
     })
@@ -29,16 +31,19 @@ const Register = () => {
       const errorMessage = err.message;
      setError(errorMessage)
     });
-    // const handleGoogleLogin=()=>{
-    //   loginWithGoogle(auth,provider)
-    //   .then(result =>{
-    //     setUser(result.user)
-    //     navigate(location?.state?location.state:'/')
-    //   })
-    //   .catch((err) => {
-    //     const errorMessage = err.message;
-        
-    //   });
+    
+  }
+  const handleGoogleLogin=()=>{
+    loginWithGoogle(auth,provider)
+    .then(result =>{
+      setUser(result.user)
+      navigate(location?.state?location.state:'/')
+    })
+    .catch((err) => {
+      const errorMessage = err.message;
+      setError(errorMessage)
+      
+    });
   }
     return (
         <div className='my-10 w-11/12 mx-auto '>
