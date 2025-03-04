@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 
 const ReviewCard = ({review}) => {
     const {image, title,description,rating,year,genre,email,name,_id} = review;
@@ -13,34 +15,19 @@ const ReviewCard = ({review}) => {
           <p className="text-sm">Year: <span className="font-medium">{year}</span></p>
         </div>
         <div className="mt-2 flex justify-between items-center">
-          <p className="font-bold text-yellow-500 text-lg">⭐ {rating}</p>
+           <span className="text-lg font-semibold text-yellow-500 flex items-center">
+            <FaStar className="mr-1" /> {rating}
+                      </span>
         </div>
+        <NavLink to={`/review/${_id}`}>
         <button
-         
-          className="mt-4 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
-        >
-          Explore Details
-        </button>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
-    <h1>hi</h1>
+         className="mt-4 cursor-pointer  w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
+       >
+         Explore Details
+       </button>
+   
+        </NavLink>
+       
       </div>
     </div>
     );
