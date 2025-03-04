@@ -1,5 +1,5 @@
 
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext,  useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider } from 'firebase/auth';
 import {  toast } from "react-toastify";
@@ -7,7 +7,7 @@ import { AuthContext } from '../../authprovider/AuthProvider';
 import { auth } from '../../components/fairebases/Fairebase';
 const Login = () => {
   
-  const {userLogin,setUser,loginWithGoogle, forgetPassword} =useContext(AuthContext)
+  const {userLogin,setUser,loginWithGoogle,} =useContext(AuthContext)
 const [error,setError]=useState('')
 const location = useLocation()
 const navigate = useNavigate()

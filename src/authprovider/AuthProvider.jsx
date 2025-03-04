@@ -1,10 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signOut,signInWithEmailAndPassword,signInWithPopup, updateProfile, sendPasswordResetEmail } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signOut,signInWithEmailAndPassword,signInWithPopup,  } from 'firebase/auth';
 import { auth } from '../components/fairebases/Fairebase';
 export const AuthContext= createContext()
 const AuthProvider = ({children}) => {
     const [user,setUser]= useState(null)
-    console.log(user)
+    // console.log(user)
     const [loading,setLoaing] = useState(true);
     const creatNewUser=(email,password)=>{
         setLoaing(true)
@@ -21,14 +21,6 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth,provider)
     }
     
-    const manageProfile=(name,photo)=>{
-        setLoaing(true)
-      return  updateProfile(auth.currentUser,{
-            displayName:name,
-            photoURL:photo
-        })
-    }
-    
     const logOut=()=>{
         setLoaing(true)
         return signOut(auth)
@@ -40,7 +32,6 @@ const AuthProvider = ({children}) => {
        logOut,
        userLogin,
        loginWithGoogle,
-       manageProfile,
        loading,
     
        }

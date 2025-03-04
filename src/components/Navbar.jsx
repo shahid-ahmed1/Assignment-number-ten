@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../authprovider/AuthProvider';
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
   const {user,logOut} = useContext(AuthContext)
@@ -8,8 +9,19 @@ const Navbar = () => {
     const links=<>
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/allreview'>All Review</NavLink></li>
+    {
+      user && <div>
     <li><NavLink to='/addreview'>Add Review</NavLink></li>
-    <li><NavLink to='/gamewatchlist'>Game Watchlist</NavLink></li>
+   
+      </div>
+    }
+  {
+    user &&  <li><NavLink to='/gamewatchlist'>Game Watchlist</NavLink></li>
+  }
+  {
+    user &&  <li><NavLink to='/myreview'>My Review</NavLink></li>
+  }
+
     
     </>
     return (
@@ -40,8 +52,14 @@ const Navbar = () => {
         {
      user ? <div className='flex items-center gap-3'>
       <img className='w-10 h-10 rounded-full' src={user.
-photoURL} alt="" />
-      <p>{user.email}</p>
+photoURL} alt="photo" 
+data-tooltip-id="user-tooltip"
+data-tooltip-content={user.displayName}
+/>
+
+<Tooltip id="user-tooltip" place="bottom" effect="solid" /> 
+
+      {/* <p>{user.email}</p> */}
       
       <button onClick={logOut} className='btn '>LogOut</button>
       </div>

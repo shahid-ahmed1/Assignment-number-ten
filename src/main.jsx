@@ -16,6 +16,8 @@ import Register from './pages/Register/Register.jsx';
 import Login from './pages/Login/Login.jsx';
 import AuthProvider from './authprovider/AuthProvider.jsx';
 import { ToastContainer } from 'react-toastify';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
+import MyReview from './pages/MyReview/MyReview.jsx';
 
   const router = createBrowserRouter([
     {
@@ -32,11 +34,15 @@ import { ToastContainer } from 'react-toastify';
         },
         {
           path: "/addreview",
-          element:<AddReview></AddReview>,
+          element:<PrivateRoute><AddReview></AddReview></PrivateRoute>,
         },
         {
           path: "/gamewatchlist",
-          element:<GameWatchlist></GameWatchlist>,
+          element:<PrivateRoute><GameWatchlist></GameWatchlist></PrivateRoute>,
+        },
+        {
+          path: "/myreview",
+          element:<PrivateRoute><MyReview></MyReview></PrivateRoute>,
         },
         {
           path: "/register",
