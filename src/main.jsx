@@ -18,6 +18,7 @@ import AuthProvider from './authprovider/AuthProvider.jsx';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 import MyReview from './pages/MyReview/MyReview.jsx';
+import ReviewCard from './components/ReviewCard/ReviewCard.jsx';
 
   const router = createBrowserRouter([
     {
@@ -27,7 +28,12 @@ import MyReview from './pages/MyReview/MyReview.jsx';
         {
           path: "/",
           element:<HomePage></HomePage>,
+          loader:()=> fetch(`http://localhost:5000/review`)
         },
+        // {
+        //   path: "/card",
+        //   element:<ReviewCard></ReviewCard>,
+        // },
         {
           path: "/allreview",
           element:<AllReviews></AllReviews>,
