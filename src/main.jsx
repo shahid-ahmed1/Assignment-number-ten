@@ -38,6 +38,7 @@ import ReviewDetails from './components/ReviewDetails/ReviewDetails.jsx';
         {
           path: "/allreview",
           element:<AllReviews></AllReviews>,
+          loader:()=> fetch(`http://localhost:5000/review/all`)
         },
         {
           path: "/addreview",

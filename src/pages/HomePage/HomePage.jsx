@@ -5,7 +5,7 @@ import { Outlet, useLoaderData } from 'react-router-dom';
 import ReviewCard from '../../components/ReviewCard/ReviewCard';
 
 const HomePage = () => {
-  const reviews = useLoaderData()
+  const reviews = useLoaderData();
     return (
         <div>
           {/*  slider */}

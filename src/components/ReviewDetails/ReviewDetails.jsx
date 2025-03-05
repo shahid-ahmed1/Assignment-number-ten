@@ -3,10 +3,7 @@ import { useLoaderData,} from 'react-router-dom';
 import { FaStar, FaUser, FaEnvelope } from "react-icons/fa";
 const ReviewDetails = () => {
     const reviews = useLoaderData();
-    const {image, title,description,rating,year,genre,email,name,_id} = reviews
-  
-  
-   
+    const {image, title,description,rating,year,genre,email,name,_id} = reviews 
     return (
         <div className="max-w-md my-10 mx-auto bg-white shadow-xl rounded-2xl overflow-hidden p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl">
         <img className="w-full h-60 object-cover rounded-t-2xl" src={image} alt={title} />
