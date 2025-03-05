@@ -42,15 +42,16 @@ import ReviewDetails from './components/ReviewDetails/ReviewDetails.jsx';
         },
         {
           path: "/addreview",
-          element:<PrivateRoute><AddReview></AddReview></PrivateRoute>,
+          element:<AddReview></AddReview>,
         },
         {
           path: "/gamewatchlist",
           element:<PrivateRoute><GameWatchlist></GameWatchlist></PrivateRoute>,
         },
         {
-          path: "/myreview",
+          path: "/myreview/:email",
           element:<PrivateRoute><MyReview></MyReview></PrivateRoute>,
+          loader:({params})=> fetch(`http://localhost:5000/myreview/${params.email}`)
         },
         {
           path: "/register",

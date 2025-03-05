@@ -9,17 +9,12 @@ const Navbar = () => {
     const links=<>
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/allreview'>All Review</NavLink></li>
-    {
-      user && <div>
     <li><NavLink to='/addreview'>Add Review</NavLink></li>
-   
-      </div>
-    }
   {
     user &&  <li><NavLink to='/gamewatchlist'>Game Watchlist</NavLink></li>
   }
   {
-    user &&  <li><NavLink to='/myreview'>My Review</NavLink></li>
+    user &&  <li><NavLink to= {`/myreview/:${user.email}`}>My Review</NavLink></li>
   }
 
     

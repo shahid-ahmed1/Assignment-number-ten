@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../authprovider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const AddReview = () => {
-
+const {user} =useContext(AuthContext)
+const navigate = useNavigate();
   const handleAddReview =(e)=>{
     e.preventDefault()
     const from = e.target;
+    if (!user) {
+
+        Swal.fire({
+            title: "Unauthorized",
+            text: "Please log in to submit a review",
+            icon: "error"
+        });
+        navigate("/login");
+        return; 
+    }
     const image = from.image.value;
     const title = from.title.value;
     const description = from.description.value;
@@ -51,8 +64,8 @@ const AddReview = () => {
             <option value="Adventure">Adventure</option>
             <option value="Shooter">Shooter</option>
           </select>
-          <input type="email" name="email" placeholder="Your Email" className="w-full p-3 border rounded-lg bg-gray-100"  />
-          <input type="text" name="name" placeholder="Your Name" className="w-full p-3 border rounded-lg bg-gray-100" />
+          <input type="email" value={user?.email} name="email" placeholder="Your Email" className="w-full p-3 border rounded-lg bg-gray-100"  />
+          <input type="text" value={user?.displayName} name="name" placeholder="Your Name" className="w-full p-3 border rounded-lg bg-gray-100" />
           <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition">Submit Review</button>
         </form>
       </div>
