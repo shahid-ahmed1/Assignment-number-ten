@@ -20,6 +20,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 import MyReview from './pages/MyReview/MyReview.jsx';
 import ReviewCard from './components/ReviewCard/ReviewCard.jsx';
 import ReviewDetails from './components/ReviewDetails/ReviewDetails.jsx';
+import UpdatedReview from './components/UpdatedReview/UpdatedReview.jsx';
 
   const router = createBrowserRouter([
     {
@@ -43,6 +44,11 @@ import ReviewDetails from './components/ReviewDetails/ReviewDetails.jsx';
         {
           path: "/addreview",
           element:<AddReview></AddReview>,
+        },
+        {
+          path: "/updateReview/:id",
+          element:<UpdatedReview></UpdatedReview>,
+          loader:({params})=>fetch(`http://localhost:5000/review/${params.id}`)
         },
         {
           path: "/gamewatchlist",

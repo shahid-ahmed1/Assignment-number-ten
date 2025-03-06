@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { data, useLoaderData } from 'react-router-dom';
+import {  Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const MyReview = () => {
     const loadedReviews = useLoaderData();
     const [reviews,setReviews]=useState(loadedReviews);
 
-    // console.log(review.length)
     const handleDelete=(_id)=>{
         Swal.fire({
             title: "Are you sure?",
@@ -40,9 +39,7 @@ const MyReview = () => {
             }
           });
     }
-    const handleUpdate=(_id)=>{
-        console.log(_id)
-    }
+  
     return (
         <div className="flex my- justify-center items-center min-h-screen">
             <div className="w-full max-w-6xl p-6 bg-white shadow-lg rounded-lg">
@@ -68,7 +65,9 @@ const MyReview = () => {
                                     <td className="px-4 py-2 border">{review.year}</td>
                                     <td className="px-4 py-2 border">{review.genre}</td>
                                     <td className="px-4 py-2 border">
-                                        <button onClick={() => handleUpdate(review._id)} className="text-blue-500 hover:underline mr-2 cursor-pointer">Update</button>
+                                        <Link to={`/updateReview/${review._id}`}>
+                                        <button className="text-blue-500 hover:underline mr-2 cursor-pointer">Update</button></Link>
+                                     
                                         <button onClick={() => handleDelete(review._id)} className="text-red-500 hover:underline cursor-pointer">Delete</button>
                                     </td>
                                 </tr>

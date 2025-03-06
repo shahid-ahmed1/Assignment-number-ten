@@ -8,7 +8,7 @@ const {user} =useContext(AuthContext)
 const navigate = useNavigate();
   const handleAddReview =(e)=>{
     e.preventDefault()
-    const from = e.target;
+    const form = e.target;
     if (!user) {
 
         Swal.fire({
@@ -19,14 +19,14 @@ const navigate = useNavigate();
         navigate("/login");
         return; 
     }
-    const image = from.image.value;
-    const title = from.title.value;
-    const description = from.description.value;
-    const rating = from.rating.value;
-    const year = from.year.value;
-    const genre = from.genre.value;
-    const email = from.email.value;
-    const name = from.name.value;
+    const image = form.image.value;
+    const title = form.title.value;
+    const description = form.description.value;
+    const rating = form.rating.value;
+    const year = form.year.value;
+    const genre = form.genre.value;
+    const email = form.email.value;
+    const name = form.name.value;
      const newReview={image,title,description,rating,year,genre,email,name}
 
      fetch('http://localhost:5000/review',{
@@ -38,7 +38,7 @@ const navigate = useNavigate();
      })
      .then(res=>res.json())
      .then(data => {
-      from.reset()
+      form.reset()
       if(data.insertedId){
         Swal.fire({
           title: "Success!",
