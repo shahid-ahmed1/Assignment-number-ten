@@ -1,12 +1,48 @@
-import React from 'react';
-import { useLoaderData,} from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLoaderData,} from 'react-router-dom';
 import { FaStar, FaUser, FaEnvelope } from "react-icons/fa";
+import { AuthContext } from '../../authprovider/AuthProvider';
+import Swal from 'sweetalert2';
 const ReviewDetails = () => {
+  const {user} =useContext(AuthContext)
     const reviews = useLoaderData();
-    const {image, title,description,rating,year,genre,email,name,_id} = reviews 
+    const {image, title,description,rating,year,genre,email,name,_id} = reviews ;
+    const handleWachlistReview =()=>{
+      const wachlistItem = {
+        title:title,
+        rating: rating,
+        name:name,
+        email: email,
+      }
+      fetch('http://localhost:5000/wachlist',{
+            method:'post',
+            headers:{
+              'content-type':'application/json'
+            },
+            body:JSON.stringify(wachlistItem)
+           })
+           .then(res=>res.json())
+           .then(data => {
+            if (data.insertedId) {
+              Swal.fire({
+                title: "Success!",
+                text: "Added to Watchlist 🎉",
+                icon: "success",
+                timer: 2000
+              });
+            } else if (data.message === "Already in Watchlist") {
+              Swal.fire({
+                title: "Oops!",
+                text: "This game is already in your Watchlist!",
+                icon: "warning",
+                timer: 2000
+              });
+            }
+           })
+    }
     return (
         <div className="max-w-md my-10 mx-auto bg-white shadow-xl rounded-2xl overflow-hidden p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-        <img className="w-full h-60 object-cover rounded-t-2xl" src={image} alt={title} />
+        <img  className="w-full h-60 object-cover rounded-t-2xl" src={image} alt={title} />
         <div className="p-5">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">{title}</h2>
           <p className="text-gray-700 text-sm mb-4">{description}</p>
@@ -24,9 +60,11 @@ const ReviewDetails = () => {
               <FaEnvelope className="mr-1 text-gray-600" /> {email}
             </p>
           </div>
-          <button className="mt-6 w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 rounded-xl shadow-md hover:from-blue-600 hover:to-indigo-700 transition-all duration-300">
-            + Add to WatchList
-          </button>
+    
+       <button onClick={handleWachlistReview} className="mt-6 w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 rounded-xl shadow-md hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
+        + Add to WatchList
+      </button>
+      
         </div>
       </div>
     );

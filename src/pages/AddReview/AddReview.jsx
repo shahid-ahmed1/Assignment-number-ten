@@ -66,7 +66,7 @@ const navigate = useNavigate();
           </select>
           <input type="email" value={user?.email} name="email" placeholder="Your Email" className="w-full p-3 border rounded-lg bg-gray-100"  />
           <input type="text" value={user?.displayName} name="name" placeholder="Your Name" className="w-full p-3 border rounded-lg bg-gray-100" />
-          <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition">Submit Review</button>
+          <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 cursor-pointer transition">Submit Review</button>
         </form>
       </div>
     );

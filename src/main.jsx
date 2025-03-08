@@ -53,6 +53,7 @@ import UpdatedReview from './components/UpdatedReview/UpdatedReview.jsx';
         {
           path: "/gamewatchlist",
           element:<PrivateRoute><GameWatchlist></GameWatchlist></PrivateRoute>,
+          loader:()=> fetch(`http://localhost:5000/myWatchlist`)
         },
         {
           path: "/myreview/:email",
