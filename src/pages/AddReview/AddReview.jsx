@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../authprovider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const AddReview = () => {
 const {user} =useContext(AuthContext)
@@ -50,6 +51,7 @@ const navigate = useNavigate();
   }
     return (
         <div className="max-w-2xl min-h-screen mx-auto mt-10 p-8 bg-white shadow-lg rounded-2xl border border-gray-200">
+          <Helmet><title> Chill Gamer || addReview</title></Helmet>
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Add Game Review</h2>
         <form onSubmit={handleAddReview} className="space-y-5">
           <input type="text" name="image" placeholder="Game Cover Image URL" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500" required />

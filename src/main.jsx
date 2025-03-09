@@ -22,6 +22,7 @@ import ReviewCard from './components/ReviewCard/ReviewCard.jsx';
 import ReviewDetails from './components/ReviewDetails/ReviewDetails.jsx';
 import UpdatedReview from './components/UpdatedReview/UpdatedReview.jsx';
 import ErrorComponents from './components/ErrorComponents/ErrorComponents.jsx';
+import HelmetExport from 'react-helmet';
 
   const router = createBrowserRouter([
     {
@@ -34,10 +35,7 @@ import ErrorComponents from './components/ErrorComponents/ErrorComponents.jsx';
           element:<HomePage></HomePage>,
           loader:()=> fetch(`https://y-theta-cyan.vercel.app/review`)
         },
-        // {
-        //   path: "/card",
-        //   element:<ReviewCard></ReviewCard>,
-        // },
+       
         {
           path: "/allreview",
           element:<AllReviews></AllReviews>,
@@ -81,6 +79,7 @@ import ErrorComponents from './components/ErrorComponents/ErrorComponents.jsx';
   ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    
     <AuthProvider>
     <RouterProvider router={router} />
     </AuthProvider>

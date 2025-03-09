@@ -6,11 +6,13 @@ import ReviewCard from '../../components/ReviewCard/ReviewCard';
 import ExtraSection from '../../components/ExtrtaSection/ExtraSection';
 import Leader from '../../components/Leader/Leader';
 import { Fade, Slide } from 'react-awesome-reveal';
+import { Helmet } from 'react-helmet';
 
 const HomePage = () => {
   const reviews = useLoaderData();
     return (
         <div>
+          <Helmet><title> Chill Gamer || Home</title></Helmet>
           {/*  slider */}
           <div>
           <Slider></Slider>

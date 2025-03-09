@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 
@@ -26,6 +27,7 @@ const AllReviews = () => {
 
     return (
         <div className="w-11/12 mx-auto py-10">
+          <Helmet><title> Chill Gamer || allreview</title></Helmet>
             <h5 className="text-3xl font-bold text-center mb-8"> All Reviews</h5>
 
             <div className="mb-6 flex justify-end">
