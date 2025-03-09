@@ -5,13 +5,20 @@ Chill Gamer is a user-friendly game review application where users can explore a
 ## Live Site URL
 [Chill Gamer Live Website](https://your-site-url.com)
 
+ Clint Site  repository:
+ 
+   git clone https://github.com/shahid-ahmed1/Assignment-number-ten
+
+ Server Site  repository:
+ 
+   git clone https://github.com/shahid-ahmed1/assignment-number-ten-server
 ---
 
 ## Features
 
 - **User Authentication**: Secure login and registration with email/password or third-party authentication (Google).
 - **Game Reviews**: Users can view, add, and update game reviews. Reviews can be sorted and filtered by rating, year, and genre.
-- **Watchlist**: Logged-in users can add reviews to their personalized game watchlist.
+- **Watchlist**: Logged-in users can add reviews to their game watchlist.
 - **Responsive Design**: Optimized for all screen sizes (mobile, tablet, desktop).
 - **Private Routes**: Protected routes like adding a review, viewing personal reviews, and managing the watchlist require authentication.
 - **404 Page**: Custom 404 page for not found routes.
@@ -27,7 +34,4 @@ Chill Gamer is a user-friendly game review application where users can explore a
 - MongoDB Atlas account (for database management)
 - Firebase account (for authentication)
 
-### Client-Side Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/chill-gamer-client.git
+

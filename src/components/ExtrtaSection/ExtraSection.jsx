@@ -17,10 +17,10 @@ const ExtraSection = () => {
     return (
       <div className="bg-gray-100  p-8 rounded-lg shadow-lg mt-10">
       <h2 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">
-        🎮 Trending Game Discussions
+        Trending Game Discussions
       </h2>
 
-      {/* Discussion List */}
+     
       <div className="space-y-4">
         {discussions.map((disc, index) => (
           <div key={index} className="bg-white  p-4 rounded-lg shadow">
@@ -32,7 +32,7 @@ const ExtraSection = () => {
         ))}
       </div>
 
-      {/* Add New Discussion */}
+      
       <div className="mt-6 bg-white  p-6 rounded-lg shadow">
         <h3 className="text-2xl font-semibold mb-4 text-gray-900 ">
           💬 Start a New Discussion
