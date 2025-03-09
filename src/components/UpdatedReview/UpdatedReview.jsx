@@ -20,7 +20,7 @@ const UpdatedReview = () => {
         const name = form.name.value;
          const updateReview={image,title,description,rating,year,genre,email,name}
     
-         fetch(`http://localhost:5000/review/${_id}`,{
+         fetch(`https://y-theta-cyan.vercel.app/review/${_id}`,{
           method:'put',
           headers:{
             'content-type':'application/json'

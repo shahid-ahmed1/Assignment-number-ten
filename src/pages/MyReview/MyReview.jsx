@@ -17,7 +17,7 @@ const MyReview = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-            fetch(`http://localhost:5000/review/${_id}`,{
+            fetch(`https://y-theta-cyan.vercel.app/review/${_id}`,{
                 method:'DELETE',
                 
             })

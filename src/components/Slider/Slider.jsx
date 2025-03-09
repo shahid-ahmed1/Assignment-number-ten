@@ -5,6 +5,7 @@ import slider3 from '../Header/assets/slider-4.avif'
 import slider4 from '../Header/assets/slider-2.jpeg'
 const Slider = () => {
     return (
+      
         <div className='w-11/12 mx-auto my-10'>
         <div className="carousel  ">
 <div id="slide1" className="carousel-item relative w-[100%] h-[500px]">

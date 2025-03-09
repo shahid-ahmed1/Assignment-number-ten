@@ -1,12 +1,33 @@
-# React + Vite
+# Chill Gamer - A Game Review Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Chill Gamer is a user-friendly game review application where users can explore and share game reviews. The platform provides a "chill" experience with a clean and responsive UI that focuses on simplicity and functionality. Users can authenticate, submit game reviews, explore game details, manage their game watchlist, and more.
 
-Currently, two official plugins are available:
+## Live Site URL
+[Chill Gamer Live Website](https://your-site-url.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **User Authentication**: Secure login and registration with email/password or third-party authentication (Google).
+- **Game Reviews**: Users can view, add, and update game reviews. Reviews can be sorted and filtered by rating, year, and genre.
+- **Watchlist**: Logged-in users can add reviews to their personalized game watchlist.
+- **Responsive Design**: Optimized for all screen sizes (mobile, tablet, desktop).
+- **Private Routes**: Protected routes like adding a review, viewing personal reviews, and managing the watchlist require authentication.
+- **404 Page**: Custom 404 page for not found routes.
+- **Dark/Light Theme Toggle**: Users can toggle between light and dark themes.
+- **Interactive UI**: Integrated with React Awesome Reveal, Lottie React, and React Tooltip for enhanced user experience.
+
+---
+
+## Installation Instructions
+
+### Prerequisites
+- Node.js
+- MongoDB Atlas account (for database management)
+- Firebase account (for authentication)
+
+### Client-Side Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/chill-gamer-client.git

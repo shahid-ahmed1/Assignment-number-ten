@@ -21,16 +21,18 @@ import MyReview from './pages/MyReview/MyReview.jsx';
 import ReviewCard from './components/ReviewCard/ReviewCard.jsx';
 import ReviewDetails from './components/ReviewDetails/ReviewDetails.jsx';
 import UpdatedReview from './components/UpdatedReview/UpdatedReview.jsx';
+import ErrorComponents from './components/ErrorComponents/ErrorComponents.jsx';
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Router></Router>,
+      errorElement:<ErrorComponents></ErrorComponents>,
       children:[
         {
           path: "/",
           element:<HomePage></HomePage>,
-          loader:()=> fetch(`http://localhost:5000/review`)
+          loader:()=> fetch(`https://y-theta-cyan.vercel.app/review`)
         },
         // {
         //   path: "/card",
@@ -39,7 +41,7 @@ import UpdatedReview from './components/UpdatedReview/UpdatedReview.jsx';
         {
           path: "/allreview",
           element:<AllReviews></AllReviews>,
-          loader:()=> fetch(`http://localhost:5000/review/all`)
+          loader:()=> fetch(`https://y-theta-cyan.vercel.app/review/all`)
         },
         {
           path: "/addreview",
@@ -48,17 +50,17 @@ import UpdatedReview from './components/UpdatedReview/UpdatedReview.jsx';
         {
           path: "/updateReview/:id",
           element:<UpdatedReview></UpdatedReview>,
-          loader:({params})=>fetch(`http://localhost:5000/review/${params.id}`)
+          loader:({params})=>fetch(`https://y-theta-cyan.vercel.app/review/${params.id}`)
         },
         {
           path: "/gamewatchlist",
           element:<PrivateRoute><GameWatchlist></GameWatchlist></PrivateRoute>,
-          loader:()=> fetch(`http://localhost:5000/myWatchlist`)
+          loader:()=> fetch(`https://y-theta-cyan.vercel.app/myWatchlist`)
         },
         {
           path: "/myreview/:email",
           element:<PrivateRoute><MyReview></MyReview></PrivateRoute>,
-          loader:({params})=> fetch(`http://localhost:5000/myreview/${params.email}`)
+          loader:({params})=> fetch(`https://y-theta-cyan.vercel.app/myreview/${params.email}`)
         },
         {
           path: "/register",
@@ -71,7 +73,7 @@ import UpdatedReview from './components/UpdatedReview/UpdatedReview.jsx';
        {
         path:'/review/:id',
         element:<PrivateRoute><ReviewDetails></ReviewDetails></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/review/${params.id}`)
+        loader:({params})=>fetch(`https://y-theta-cyan.vercel.app/review/${params.id}`)
        }
         
       ]

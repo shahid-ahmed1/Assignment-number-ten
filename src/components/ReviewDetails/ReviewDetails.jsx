@@ -14,7 +14,7 @@ const ReviewDetails = () => {
         name:name,
         email: email,
       }
-      fetch('http://localhost:5000/wachlist',{
+      fetch('https://y-theta-cyan.vercel.app/wachlist',{
             method:'post',
             headers:{
               'content-type':'application/json'
@@ -26,7 +26,7 @@ const ReviewDetails = () => {
             if (data.insertedId) {
               Swal.fire({
                 title: "Success!",
-                text: "Added to Watchlist 🎉",
+                text: "Added to Watchlist ",
                 icon: "success",
                 timer: 2000
               });

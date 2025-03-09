@@ -29,7 +29,7 @@ const navigate = useNavigate();
     const name = form.name.value;
      const newReview={image,title,description,rating,year,genre,email,name}
 
-     fetch('http://localhost:5000/review',{
+     fetch('https://y-theta-cyan.vercel.app/review',{
       method:'post',
       headers:{
         'content-type':'application/json'
