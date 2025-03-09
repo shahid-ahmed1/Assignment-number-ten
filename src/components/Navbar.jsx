@@ -88,7 +88,7 @@ data-tooltip-content={user.displayName}
        
         </div>
     }
-    <div>
+    <div className='ml-5'>
     <label className="flex cursor-pointer gap-2 items-center">
       {/* Sun Icon (Light Mode) */}
       <svg

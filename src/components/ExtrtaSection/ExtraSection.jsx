@@ -1,47 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ExtraSection = () => {
+  const [discussions, setDiscussions] = useState([
+    { topic: "Is Elden Ring the best RPG of all time?", user: "Alex" },
+    { topic: "What makes a game truly immersive?", user: "Sam" },
+  ]);
+
+  const [newDiscussion, setNewDiscussion] = useState("");
+
+  const handleAddDiscussion = () => {
+    if (newDiscussion.trim()) {
+      setDiscussions([{ topic: newDiscussion, user: "You" }, ...discussions]);
+      setNewDiscussion("");
+    }
+  };
     return (
-        <div className="mt-10 space-y-12">
-        {/* Trending Games Section */}
-        <section className="bg-gray-100  p-8 rounded-lg shadow-lg">
-          <h2 className="text-3xl font-bold text-center mb-6 text-gray-900 ">
-            🎮 Trending Games
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { name: "Elden Ring", img: "https://example.com/elden.jpg" },
-              { name: "Cyberpunk 2077", img: "https://example.com/cyberpunk.jpg" },
-              { name: "God of War", img: "https://example.com/godofwar.jpg" },
-            ].map((game, index) => (
-              <div key={index} className="bg-white  p-4 rounded-lg shadow">
-                <img src={game.img} alt={game.name} className="rounded-lg mb-3 w-full h-40 object-cover" />
-                <h3 className="text-xl font-semibold text-gray-900 ">{game.name}</h3>
-              </div>
-            ))}
+      <div className="bg-gray-100  p-8 rounded-lg shadow-lg mt-10">
+      <h2 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">
+        🎮 Trending Game Discussions
+      </h2>
+
+      {/* Discussion List */}
+      <div className="space-y-4">
+        {discussions.map((disc, index) => (
+          <div key={index} className="bg-white  p-4 rounded-lg shadow">
+            <h3 className="text-xl font-semibold text-gray-900 ">
+              {disc.topic}
+            </h3>
+            <p className="text-sm text-gray-600 ">Posted by {disc.user}</p>
           </div>
-        </section>
-  
-        {/* Featured Developers Section */}
-        <section className="bg-white  p-8 rounded-lg shadow-lg">
-          <h2 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">
-            🔥 Featured Developers
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { name: "Hideo Kojima", img: "https://example.com/kojima.jpg", studio: "Kojima Productions" },
-              { name: "Todd Howard", img: "https://example.com/todd.jpg", studio: "Bethesda" },
-              { name: "Shigeru Miyamoto", img: "https://example.com/miyamoto.jpg", studio: "Nintendo" },
-            ].map((dev, index) => (
-              <div key={index} className="bg-gray-100 p-4 rounded-lg shadow">
-                <img src={dev.img} alt={dev.name} className="rounded-full w-20 h-20 mx-auto mb-3" />
-                <h3 className="text-xl font-semibold text-gray-900 ">{dev.name}</h3>
-                <p className="text-gray-600 ">{dev.studio}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        ))}
       </div>
+
+      {/* Add New Discussion */}
+      <div className="mt-6 bg-white  p-6 rounded-lg shadow">
+        <h3 className="text-2xl font-semibold mb-4 text-gray-900 ">
+          💬 Start a New Discussion
+        </h3>
+        <input
+          type="text"
+          placeholder="Enter a discussion topic..."
+          className="w-full p-2 mb-3 border rounded"
+          value={newDiscussion}
+          onChange={(e) => setNewDiscussion(e.target.value)}
+        />
+        <button
+          onClick={handleAddDiscussion}
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Add Discussion
+        </button>
+      </div>
+    </div>
     );
 };
 
