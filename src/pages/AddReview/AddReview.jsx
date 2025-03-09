@@ -49,7 +49,7 @@ const navigate = useNavigate();
      })
   }
     return (
-        <div className="max-w-2xl mx-auto my-10 p-8 bg-white shadow-lg rounded-2xl border border-gray-200">
+        <div className="max-w-2xl min-h-screen mx-auto mt-10 p-8 bg-white shadow-lg rounded-2xl border border-gray-200">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Add Game Review</h2>
         <form onSubmit={handleAddReview} className="space-y-5">
           <input type="text" name="image" placeholder="Game Cover Image URL" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500" required />

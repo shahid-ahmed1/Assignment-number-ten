@@ -41,7 +41,7 @@ const MyReview = () => {
     }
   
     return (
-        <div className="flex my-10 justify-center items-center ">
+        <div className="flex min-h-screen  justify-center items-center ">
             <div className="w-full max-w-6xl p-6 bg-white shadow-lg rounded-lg">
                 <h2 className="text-2xl font-semibold mb-4 text-center">Your Reviews</h2>
                 <table className="min-w-full table-auto">

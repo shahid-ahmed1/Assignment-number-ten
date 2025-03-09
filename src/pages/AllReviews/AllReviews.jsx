@@ -7,7 +7,7 @@ const AllReviews = () => {
     const {image, title,description,rating,year,genre,email,name,_id} = reviews;
     return (
         <div className="w-11/12 mx-auto py-10">
-        <h1 className="text-3xl font-bold text-center mb-8"> All Reviews</h1>
+        <h5 className="text-3xl font-bold text-center mb-8"> All Reviews</h5>
   
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((review) => (

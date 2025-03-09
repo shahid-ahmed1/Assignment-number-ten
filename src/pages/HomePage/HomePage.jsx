@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header';
 import Slider from '../../components/Slider/Slider';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import ReviewCard from '../../components/ReviewCard/ReviewCard';
+import ExtraSection from '../../components/ExtrtaSection/ExtraSection';
 
 const HomePage = () => {
   const reviews = useLoaderData();
@@ -21,7 +22,8 @@ const HomePage = () => {
          }
          </div>
       
-           
+           {/* extra section  */}
+           <ExtraSection></ExtraSection>
          </div>
         </div>
     );

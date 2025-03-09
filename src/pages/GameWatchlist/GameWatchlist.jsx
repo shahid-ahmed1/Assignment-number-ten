@@ -4,9 +4,8 @@ import { useLoaderData } from 'react-router-dom';
 const GameWatchlist = () => {
     const loadedReviews = useLoaderData();
     const [reviews,setReviews]=useState(loadedReviews);
-    const {image, title,description,rating,year,genre,email,name,_id,addedDate} = reviews ;
     return (
-        <div className="flex my-10 justify-center items-center ">
+        <div className="min-h-screen flex mt-10 justify-center items-center ">
         <div className="w-full max-w-6xl p-6 bg-white shadow-lg rounded-lg">
             <h2 className="text-2xl font-semibold mb-4 text-center">Your Game Wachlist</h2>
             <table className="min-w-full table-auto">
